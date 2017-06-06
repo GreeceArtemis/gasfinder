@@ -3,14 +3,14 @@
 const render = (root) => {
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
-//  wrapper.append(Header(_ => render(root)));
-  wrapper.append(Header());
-  if (state.selectedMovie == null) {
+  wrapper.append(Header(_ => render(root)));
+//  wrapper.append(Header());
+  if (state.selectedStation == null) {
     wrapper.append(StationDetails( _ => {
       render(root);
     }));
   } else {
-    wrapper.append(Gmap( _ => {
+    wrapper.append(GasDetails( _ => {
       render(root);
     }));
   }
