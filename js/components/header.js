@@ -3,9 +3,17 @@
 const Header = (update) => {
   const header = $("<header></header>");
   const title = $("<span>Gas Finder</span>");
-  const icon = $('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
+  const itemSearch = $('<a href="#" class="item-search"></a>');
+  if(state.selectedStation == null){
+      header.append(title);
+      header.append(Search());
 
-  header.append(title);
+  }else{
+      const iconArrow = $('<span class="fa fa-chevron-left" aria-hidden="true"></span>');
+      itemSearch.append(iconArrow);
+      header.append(itemSearch);
+      header.append(title);
+  }
 
   return header;
 }
