@@ -1,7 +1,34 @@
 'use strict';
+  var init =function(parent) {
+    map = new GMaps({
+      el: '#map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
 
+    map.addMarker({
+      lat: -12.043333,
+      lng: -77.03,
+      title: 'Lima'
+    });
+
+  }
+
+  var Gmap = () => {
+    var wrapper = $('<div id="map"></div>');
+    wrapper.init = init.bind(null,wrapper.get(0));
+    return wrapper;
+  }
+
+//
 const GasDetails = (station,update) => {
-  
+
+  var gmap = Gmap();
+  gmap.init();
+  var map;
+
+
+//
   const container = $('<div class="gas-detail"></div>');
   const hr = $('<hr>');
   const name = $('<p class="name-station">'+state.selectedStation.name+'</p>');

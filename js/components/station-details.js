@@ -15,12 +15,6 @@ const stationItem = (station,update) => {
   stationItem.append(place);
   stationItem.append(item);
 
-  item.on('click',(e) => {
-    e.preventDefault();
-    state.selectedStation = station;
-    update();
-  });
-
   return stationItem;
 
 }
@@ -28,12 +22,26 @@ const stationItem = (station,update) => {
 
 const StationDetails = (update) => {
   const stationContainer = $('<div class="station-container"></div>');
-  state.stations.forEach((station) => {
-    stationContainer.append(stationItem(station,update));
-  });
-
+//  state.stations.forEach((station) => {
+  //  stationContainer.append(stationItem(station,update));
+//  });
+    const searchContent = $('<div class="content-search"></div>');
+    state.stations.forEach((station) => {
+    searchContent.append(stationItem(station,update));
+    });
+    stationContainer.append(searchContent);
   return stationContainer;
 }
+
+const reRender = (content, filterStations) =>{
+  content.empty();
+  filterStations.forEach((filterStation) =>{
+    content.append(stationItem(filterStation, _ => {reRender(content, filterStations);}));
+  });
+}
+
+//otra manera
+/*
 const StationDetailsFilter = (update) => {
 //  const stationContainerFilter = $('<div class="station-container-filter"></div>');
   var availableTags=[];
@@ -46,8 +54,8 @@ const StationDetailsFilter = (update) => {
   });
   //stationContainerFilter.append(stationItem(station,update));
 //document.getElementsByClassName("ui-menu-item")[0].firstChild.innerHTML
-//$(".ui-menu-item li").text()
-//$(".ui-menu-item li div").text()
+//$(".ui-menu-item").text()
+//$(".ui-menu-item div").text()
 /*  $( function() {
       var availableTags = state.stations;
       console.log(input.val());
@@ -55,6 +63,7 @@ const StationDetailsFilter = (update) => {
       $('#autocomplete-input').autocomplete({
         source: availableTags
       });
-    } );*/
+    } );
   return stationContainerFilter;
 }
+*/

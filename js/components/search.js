@@ -15,6 +15,14 @@ const Search = () => {
   //state.movies.forEach((movie) => {
   //  movieContainer.append(movieItem(movie,update));
   //});
+
+  input.on('keyup', (e) =>{
+    e.preventDefault();
+    var filterStations = filterByDistrict(state.stations,input.val());
+    reRender(searchContent, filterStations);
+  });
+
+/*
   input.on('keyup',(e)=>{
     e.preventDefault();
     StationDetailsFilter( _ => {
@@ -22,6 +30,8 @@ const Search = () => {
     });
 
   });
+
+  */
 /*  const Complete = () =>{
     input.autocomplete({
         data: {
