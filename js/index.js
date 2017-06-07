@@ -9,6 +9,7 @@ const render = (root) => {
     wrapper.append(StationDetails( _ => {
       render(root);
     }));
+    
   } else {
     wrapper.append(GasDetails( _ => {
       render(root);
@@ -36,6 +37,7 @@ $( _ => {
 //
     const root = $('.root');
     render(root);
+
   });
 
 });
