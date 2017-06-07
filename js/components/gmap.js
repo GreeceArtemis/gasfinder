@@ -1,50 +1,20 @@
 'use strict';
+
+
 /*
-const init =()=> {
-    map = new GMaps({
-      div: '#map',
-      lat: -12.043333,
-      lng: -77.028333
-    });
-    map.geolocate({
-      success: function(position) {
-        map.setCenter(position.coords.latitude, position.coords.longitude);
-      },
-      error: function(error) {
-        alert('Geolocation failed: '+error.message);
-      },
-      not_supported: function() {
-        alert("Your browser does not support geolocation");
-      },
-      always: function() {
-        alert("Done!");
-      }
-    });
-    map.addMarker({
-      lat: latitude,
-      lng: longitude,
-      title: 'Lima',
-      click: function(e) {
-        alert('You Here');
-      }
-    });
-
-  }
-
   const Gmap = () => {
-    const wrapper = $('<div id="map"></div>');
-    wrapper.init = init.bind(null,wrapper.get(0));
-    return wrapper;
+    const wrapperMap = $('<div id="map"></div>');
+    //wrapperMap.init = init.bind(null,wrapper.get(0));
+    return wrapperMap;
   }
 */
 //
 
-const GasDetails = (station,update) => {
-/*
-  const gmap = Gmap();
-  gmap.init();
-  */
 
+const GasDetails = (station,update) => {
+
+  const wrapperMap = $('<div id="map"></div>');
+  
 //
   const containerMap = $('<div class="gas-map"></div>');
   const container = $('<div class="gas-detail"></div>');
@@ -65,14 +35,31 @@ const GasDetails = (station,update) => {
   const latitud = $('<p class="address-station">'+state.selectedStation.lat+'</p>');
   const longitud = $('<p class="district-station">'+state.selectedStation.long+'</p>');
 
-
   container.append(name);
   container.append(hr);
   container.append(direction);
   container.append(Products());
-//  containerMap.append(gmap);
-//  containerMap.append(container);
 
+  containerMap.append(wrapperMap);
+ containerMap.append(container);
+/*
+ var  map = new GMaps({
+     div: '#map',
+    // lat: -12.043333,
+    // lng: -77.028333
+     lat: state.selectedStation.lat,
+     lng: state.selectedStation.long
+   });
 
-  return container;
+ var pos1=  map.addMarker({
+     lat: state.selectedStation.lat,
+     lng: state.selectedStation.long,
+     title: state.selectedStation.name,
+     click: function(e) {
+       alert('You Here');
+     }
+   });
+*/
+
+  return containerMap;
 }

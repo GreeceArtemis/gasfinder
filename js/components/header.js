@@ -20,6 +20,7 @@ const Header = (update) => {
         state.selectedStation = null;
         update();
       })
+
   }
 
   return header;

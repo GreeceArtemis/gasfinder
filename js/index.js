@@ -9,16 +9,36 @@ const render = (root) => {
     wrapper.append(StationDetails( _ => {
       render(root);
     }));
+    root.append(wrapper);
   } else {
     wrapper.append(GasDetails( _ => {
+
       render(root);
     }));
+    root.append(wrapper);
+
+    var  map = new GMaps({
+        div: '#map',
+       // lat: -12.043333,
+       // lng: -77.028333
+        lat: state.selectedStation.lat,
+        lng: state.selectedStation.long
+      });
+      var pos1=  map.addMarker({
+          lat: state.selectedStation.lat,
+          lng: state.selectedStation.long,
+          title: state.selectedStation.name,
+          click: function(e) {
+            alert('You Here');
+          }
+        });
   }
 
 
 
 
-  root.append(wrapper);
+
+
 }
 
 const state = {

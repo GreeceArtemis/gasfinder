@@ -46,7 +46,9 @@ input[type=text]:focus:not([readonly]) {
   margin: 0;
 }
 
+
 #map {
-  width: 100%;
-  height: 400px;
+  width: 700px;
+  height: 500px;
+  border: 1px solid #a0a0a0;
 }
