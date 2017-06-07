@@ -1,34 +1,52 @@
 'use strict';
-  var init =function(parent) {
+/*
+const init =()=> {
     map = new GMaps({
-      el: '#map',
+      div: '#map',
       lat: -12.043333,
       lng: -77.028333
     });
-
+    map.geolocate({
+      success: function(position) {
+        map.setCenter(position.coords.latitude, position.coords.longitude);
+      },
+      error: function(error) {
+        alert('Geolocation failed: '+error.message);
+      },
+      not_supported: function() {
+        alert("Your browser does not support geolocation");
+      },
+      always: function() {
+        alert("Done!");
+      }
+    });
     map.addMarker({
-      lat: -12.043333,
-      lng: -77.03,
-      title: 'Lima'
+      lat: latitude,
+      lng: longitude,
+      title: 'Lima',
+      click: function(e) {
+        alert('You Here');
+      }
     });
 
   }
 
-  var Gmap = () => {
-    var wrapper = $('<div id="map"></div>');
+  const Gmap = () => {
+    const wrapper = $('<div id="map"></div>');
     wrapper.init = init.bind(null,wrapper.get(0));
     return wrapper;
   }
-
+*/
 //
+
 const GasDetails = (station,update) => {
-
-  var gmap = Gmap();
+/*
+  const gmap = Gmap();
   gmap.init();
-  var map;
-
+  */
 
 //
+  const containerMap = $('<div class="gas-map"></div>');
   const container = $('<div class="gas-detail"></div>');
   const hr = $('<hr>');
   const name = $('<p class="name-station">'+state.selectedStation.name+'</p>');
@@ -52,7 +70,8 @@ const GasDetails = (station,update) => {
   container.append(hr);
   container.append(direction);
   container.append(Products());
-
+//  containerMap.append(gmap);
+//  containerMap.append(container);
 
 
   return container;

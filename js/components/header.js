@@ -6,7 +6,7 @@ const Header = (update) => {
 
   if(state.selectedStation == null){
       header.append(title);
-      header.append(Search());
+      header.append(Search(update));
 
   }else{
       const itemReturn = $('<a href="#" class="item-return"></a>');

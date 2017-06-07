@@ -16,21 +16,14 @@ const Search = () => {
   //  movieContainer.append(movieItem(movie,update));
   //});
 
-  input.on('keyup', (e) =>{
-    e.preventDefault();
-    var filterStations = filterByDistrict(state.stations,input.val());
-    reRender(searchContent, filterStations);
-  });
-
-/*
+  /*
   input.on('keyup',(e)=>{
     e.preventDefault();
-    StationDetailsFilter( _ => {
+    wrapper.append(StationDetailsFilter( _ => {
       render(root);
-    });
+    }));
 
   });
-
   */
 /*  const Complete = () =>{
     input.autocomplete({
